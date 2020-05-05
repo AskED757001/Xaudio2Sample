@@ -116,7 +116,7 @@ void WavLoadFromHeader(SoundData* local_data, bool Loop)//SoundData‰»‚³‚ê‚½‰¹º
 	SourceVoiceformat.nBlockAlign = SourceVoiceformat.wBitsPerSample / 8 * SourceVoiceformat.nChannels;
 	SourceVoiceformat.nAvgBytesPerSec = SourceVoiceformat.nSamplesPerSec * SourceVoiceformat.nBlockAlign;
 	if(local_data->source_voice == NULL)
-	xaudio->CreateSourceVoice(&local_data->source_voice, &SourceVoiceformat);
+	xaudio->CreateSourceVoice(&local_data->source_voice, &SourceVoiceformat,0, XAUDIO2_MAX_FREQ_RATIO);
 	XAUDIO2_BUFFER SourceBuffer = { 0 };
 	SourceBuffer.AudioBytes = local_data->chunkSize;
 	SourceBuffer.pAudioData = (BYTE*)local_data->WaveData;
